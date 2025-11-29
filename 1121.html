@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Beni Seviyor Musun?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            touch-action: manipulation;
+            position: fixed;
+            inset: 0;
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            max-width: 420px;
+            width: 88%;
+            position: relative;
+            padding: 32px 22px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 2.1rem;
+            margin-bottom: 22px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 28px;
+            position: relative;
+        }
+
+        button {
+            padding: 14px 26px;
+            border: none;
+            border-radius: 999px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            position: relative;
+            z-index: 10;
+            min-width: 120px;
+        }
+
+        #yesBtn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        #noBtn {
+            background: linear-gradient(45deg, #ff4d6d, #ff3355);
+            color: white;
+            position: relative;
+            z-index: 20;
+            transition: left 0.35s ease, top 0.35s ease, transform 0.2s ease;
+        }
+
+        #noBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+        }
+
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: #ff4d6d;
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            animation: floatUp 3s ease-in-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-
